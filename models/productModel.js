@@ -3,7 +3,7 @@ const productSchema = new mongoose.Schema(
   {
     title: {
       type: String,
-      required: [true, "product must belong to a title"],
+      // required: [true, "product must belong to a title"],
       trim: true,
       maxlength: [
         50,
@@ -18,25 +18,25 @@ const productSchema = new mongoose.Schema(
     slug: String,
     description: {
       type: String,
-      required: [true, "product must belong to a description"],
+      // required: [true, "product must belong to a description"],
     },
     images: [String],
     categories: {
       type: String,
-      enum: ["t-shirt", "trouser", "polo"],
+      enum: ["t-shirt", "trouser", "polo", "medium"],
       default: "medium",
     },
     quantity: {
       type: Number,
-      required: true,
+      // required: true,
     },
-    averageRating: {
-      type: Number,
-      default: 5,
-      min: [1, "Rating must be above 1.0"],
-      max: [10, "Rating must be below 5.0"],
-      set: (val) => math.round(val * 10) / 10, //4.6666,4.666,47,4.7
-    },
+    // averageRating: {
+    //   type: Number,
+    //   default: 5,
+    //   min: [1, "Rating must be above 1.0"],
+    //   max: [10, "Rating must be below 5.0"],
+    //   set: (val) => math.round(val * 10) / 10, //4.6666,4.666,47,4.7
+    // },
     numberOfRatings: {
       type: Number,
       default: 0,
@@ -49,7 +49,7 @@ const productSchema = new mongoose.Schema(
     color: { type: String },
     price: {
       type: Number,
-      required: [true, "A tour must have a price"],
+      // required: [true, "A product must have a price"],
     },
     priceDiscount: {
       type: Number,
